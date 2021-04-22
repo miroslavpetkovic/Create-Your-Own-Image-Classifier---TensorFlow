@@ -1,0 +1,109 @@
+The predict.py script successfully reads in an image and a saved Keras model and then prints the most likely image class and it's associated probability.
+
+#python predict.py ./test_images/cautleya_spicata.jpg image_classifer1619131907.0341396.h5
+2021-04-23 01:23:19.190385: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudart64_110.dll
+2021-04-23 01:23:21.187421: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library nvcuda.dll
+2021-04-23 01:23:21.909996: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1734] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce MX230 computeCapability: 6.1
+coreClock: 1.531GHz coreCount: 2 deviceMemorySize: 2.00GiB deviceMemoryBandwidth: 44.76GiB/s
+2021-04-23 01:23:21.910419: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudart64_110.dll
+2021-04-23 01:23:21.926584: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublas64_11.dll
+2021-04-23 01:23:21.926883: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublasLt64_11.dll
+2021-04-23 01:23:21.938324: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cufft64_10.dll
+2021-04-23 01:23:21.941167: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library curand64_10.dll
+2021-04-23 01:23:21.944435: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cusolver64_11.dll
+2021-04-23 01:23:21.949184: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cusparse64_11.dll
+2021-04-23 01:23:21.951511: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudnn64_8.dll
+2021-04-23 01:23:21.953567: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1872] Adding visible gpu devices: 0
+2021-04-23 01:23:21.955006: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-23 01:23:22.008748: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1734] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce MX230 computeCapability: 6.1
+coreClock: 1.531GHz coreCount: 2 deviceMemorySize: 2.00GiB deviceMemoryBandwidth: 44.76GiB/s
+2021-04-23 01:23:22.009268: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1872] Adding visible gpu devices: 0
+2021-04-23 01:23:22.510672: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1258] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-23 01:23:22.510993: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1264]      0
+2021-04-23 01:23:22.512639: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1277] 0:   N
+2021-04-23 01:23:22.513739: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1418] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1336 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce MX230, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2021-04-23 01:23:26.564965: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:180] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-04-23 01:23:26.993685: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudnn64_8.dll
+2021-04-23 01:23:27.320189: I tensorflow/stream_executor/cuda/cuda_dnn.cc:367] Loaded cuDNN version 8101
+2021-04-23 01:23:27.733492: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublas64_11.dll
+2021-04-23 01:23:28.062368: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublasLt64_11.dll
+probabilites    = [0.994948, 0.0032781817, 0.0011894706]
+classes numbers = [60, 58, 14]
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+The predict.py script allows users to print out the top K classes along with associated probabilities.
+
+#python predict.py ./test_images/cautleya_spicata.jpg image_classifer1619131907.0341396.h5 --top_k 3
+2021-04-23 01:18:03.152372: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudart64_110.dll
+2021-04-23 01:18:05.118630: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library nvcuda.dll
+2021-04-23 01:18:05.859679: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1734] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce MX230 computeCapability: 6.1
+coreClock: 1.531GHz coreCount: 2 deviceMemorySize: 2.00GiB deviceMemoryBandwidth: 44.76GiB/s
+2021-04-23 01:18:05.860346: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudart64_110.dll
+2021-04-23 01:18:05.892167: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublas64_11.dll
+2021-04-23 01:18:05.892460: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublasLt64_11.dll
+2021-04-23 01:18:05.917981: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cufft64_10.dll
+2021-04-23 01:18:05.922648: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library curand64_10.dll
+2021-04-23 01:18:05.934298: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cusolver64_11.dll
+2021-04-23 01:18:05.945459: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cusparse64_11.dll
+2021-04-23 01:18:05.946960: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudnn64_8.dll
+2021-04-23 01:18:05.947657: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1872] Adding visible gpu devices: 0
+2021-04-23 01:18:05.950776: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-23 01:18:06.004991: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1734] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce MX230 computeCapability: 6.1
+coreClock: 1.531GHz coreCount: 2 deviceMemorySize: 2.00GiB deviceMemoryBandwidth: 44.76GiB/s
+2021-04-23 01:18:06.005296: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1872] Adding visible gpu devices: 0
+2021-04-23 01:18:07.034243: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1258] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-23 01:18:07.034425: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1264]      0
+2021-04-23 01:18:07.035675: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1277] 0:   N
+2021-04-23 01:18:07.038369: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1418] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1336 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce MX230, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2021-04-23 01:18:11.095215: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:180] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-04-23 01:18:11.531686: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudnn64_8.dll
+2021-04-23 01:18:12.227614: I tensorflow/stream_executor/cuda/cuda_dnn.cc:367] Loaded cuDNN version 8101
+2021-04-23 01:18:13.035994: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublas64_11.dll
+2021-04-23 01:18:13.751226: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublasLt64_11.dll
+probabilites    = [0.994948, 0.0032781817, 0.0011894706]
+classes numbers = [60, 58, 14]
+--------------------------
+
+The predict.py script allows users to load a JSON file that maps the class values to other category names.
+
+#python predict.py ./test_images/cautleya_spicata.jpg image_classifer1619131907.0341396.h5 --json label_map.json
+2021-04-23 01:20:05.331096: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudart64_110.dll
+2021-04-23 01:20:07.302905: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library nvcuda.dll
+2021-04-23 01:20:08.016614: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1734] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce MX230 computeCapability: 6.1
+coreClock: 1.531GHz coreCount: 2 deviceMemorySize: 2.00GiB deviceMemoryBandwidth: 44.76GiB/s
+2021-04-23 01:20:08.016911: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudart64_110.dll
+2021-04-23 01:20:08.026592: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublas64_11.dll
+2021-04-23 01:20:08.026823: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublasLt64_11.dll
+2021-04-23 01:20:08.035752: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cufft64_10.dll
+2021-04-23 01:20:08.039459: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library curand64_10.dll
+2021-04-23 01:20:08.043416: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cusolver64_11.dll
+2021-04-23 01:20:08.047447: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cusparse64_11.dll
+2021-04-23 01:20:08.049562: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudnn64_8.dll
+2021-04-23 01:20:08.049900: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1872] Adding visible gpu devices: 0
+2021-04-23 01:20:08.051326: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-23 01:20:08.100649: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1734] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: NVIDIA GeForce MX230 computeCapability: 6.1
+coreClock: 1.531GHz coreCount: 2 deviceMemorySize: 2.00GiB deviceMemoryBandwidth: 44.76GiB/s
+2021-04-23 01:20:08.100993: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1872] Adding visible gpu devices: 0
+2021-04-23 01:20:08.594684: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1258] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-04-23 01:20:08.595038: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1264]      0
+2021-04-23 01:20:08.603571: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1277] 0:   N
+2021-04-23 01:20:08.604601: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1418] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1336 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce MX230, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2021-04-23 01:20:12.661735: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:180] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-04-23 01:20:13.090634: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cudnn64_8.dll
+2021-04-23 01:20:13.424893: I tensorflow/stream_executor/cuda/cuda_dnn.cc:367] Loaded cuDNN version 8101
+2021-04-23 01:20:13.859329: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublas64_11.dll
+2021-04-23 01:20:14.171412: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library cublasLt64_11.dll
+probabilites    = [0.994948, 0.0032781817, 0.0011894706]
+classes numbers = [60, 58, 14]
+classes names   = ['cautleya spicata', 'orange dahlia', 'yellow iris']
+
